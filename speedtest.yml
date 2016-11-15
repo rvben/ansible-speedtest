@@ -1,0 +1,25 @@
+---
+- name: Speedtest
+  hosts: all
+
+  tasks:
+    - name: Get Speedtest Script
+      get_url:
+        url: https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py
+        dest: /tmp/speedtest-cli
+
+    - name: Run Speedtest
+      command: python /tmp/speedtest-cli --simple
+      register: output
+
+    - name: Ping Speed
+      debug:
+        msg: "{{ output.stdout_lines[0] }}"
+
+    - name: Download Speed
+      debug:
+        msg: "{{ output.stdout_lines[1] }}"
+
+    - name: Upload Speed
+      debug:
+        msg: "{{ output.stdout_lines[2] }}"
