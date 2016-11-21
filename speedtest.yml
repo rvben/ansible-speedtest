@@ -5,8 +5,9 @@
   tasks:
     - name: Get Speedtest Script
       get_url:
-        url: https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py
-        dest: /tmp/speedtest-cli
+        url: https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+        dest: /tmp/speedtest
+        force: yes
 
     - name: Run Speedtest
       command: python /tmp/speedtest-cli --simple
