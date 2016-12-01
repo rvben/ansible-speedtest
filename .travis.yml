@@ -1,0 +1,25 @@
+---
+language: python
+python: "2.7"
+
+# Use the new container infrastructure
+sudo: false
+
+# Install ansible
+addons:
+  apt:
+    packages:
+    - python-pip
+
+install:
+  # Install ansible & ansible-lint
+  - pip install ansible
+  - pip install ansible-lint
+
+  # Check ansible version
+  - ansible --version
+
+script:
+  # Basic role syntax check
+  - ansible-playbook speedtest.yml -i [localhost,] --syntax-check
+  - ansible-lint speedtest.yml
