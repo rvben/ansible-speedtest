@@ -12,6 +12,7 @@
     - name: Run Speedtest
       command: python /tmp/speedtest-cli --simple
       register: output
+      changed_when: false
 
     - name: Ping Speed
       debug:
