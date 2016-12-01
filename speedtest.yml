@@ -10,7 +10,7 @@
         force: yes
 
     - name: Run Speedtest
-      command: python /tmp/speedtest-cli --simple
+      command: python /tmp/speedtest --simple
       register: output
       changed_when: false
 
